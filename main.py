@@ -4,7 +4,7 @@ from rdkit.Chem import Draw
 import os
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-def generatesimilarmol(input_sequences, num_samples=1000):
+def generatesimilarmol(input_sequences, num_samples=10):
     tokenizer = AutoTokenizer.from_pretrained("seyonec/PubChem10M_SMILES_BPE_450k", padding_side="left")
     model = AutoModelForCausalLM.from_pretrained("seyonec/PubChem10M_SMILES_BPE_450k")
     inputs = tokenizer(input_sequences, return_tensors="pt", padding=True, truncation=True)
